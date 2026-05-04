@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Refleksi Titik</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<canvas id="myChart" width="400" height="500"></canvas>
+
+<script>
+  // Titik A
+  const A = {x: 2, y: 3};
+
+  // Refleksi terhadap sumbu-X
+  const B = {x: A.x, y: -A.y};
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Titik A',
+          data: [A]
+        },
+        {
+          label: 'Hasil Refleksi (B)',
+          data: [B]
+        }
+      ]
+    },
+    options: {
+      scales: {
+        x: {
+          min: 0,
+          max: 5,
+          grid: { display: true }
+        },
+        y: {
+          min: -4,
+          max: 4,
+          grid: { display: true }
+        }
+      },
+      plugins: {
+        legend: { display: true }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
